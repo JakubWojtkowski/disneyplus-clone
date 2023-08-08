@@ -82,6 +82,7 @@ const NavMenu = styled.div`
         opacity: 0;
         transform-origin: left center;
         transform: scaleX(0);
+        transition: all 0.3s cubic-bezier(0.25, 0.45, 0.45, 0.95) 0s;
       }
     }
 
@@ -89,7 +90,6 @@ const NavMenu = styled.div`
       span:after {
         transform: scaleX(1);
         opacity: 1;
-        transition: all 0.3s ease-in;
       }
     }
   }
