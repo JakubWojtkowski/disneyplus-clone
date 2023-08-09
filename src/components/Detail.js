@@ -8,9 +8,9 @@ function Detail() {
         <img src="/images/bao.jpg" alt=""></img>
       </Background>
 
-      <Title>
+      <ImgTitle>
         <img src="/images/bao-logo.png" alt="" />
-      </Title>
+      </ImgTitle>
 
       <Controls>
         <PlayBtn>
@@ -62,11 +62,12 @@ const Background = styled.div`
   }
 `;
 
-const Title = styled.div`
+const ImgTitle = styled.div`
   height: 30vh;
   width: 35vw;
   min-height: 170px;
   min-width: 200px;
+  margin-top: 60px;
 
   img {
     width: 100%;
@@ -136,4 +137,5 @@ const Description = styled.div`
   line-height: 1.4;
   font-size: 20px;
   margin-top: 16px;
+  max-width: 760px;
 `;
