@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-function Movies() {
+function Movies({ movies }) {
   return (
     <Container>
       <h4>Recommended for You</h4>
       <Content>
+        <Wrap>
+          <img src="/images/simpsons.jpg" alt="" />
+        </Wrap>
         <Wrap>
           <img src="/images/simpsons.jpg" alt="" />
         </Wrap>
@@ -37,7 +40,9 @@ function Movies() {
 
 export default Movies;
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding: 0 0 26px;
+`;
 
 const Content = styled.div`
   display: grid;
@@ -65,7 +70,7 @@ const Wrap = styled.div`
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.01);
     border-color: rgba(249, 249, 249, 0.7);
     box-shadow: rgb(0 0 0 /80%) 0px 40px 58px -16px,
       rgb(0 0 0 / 73%) 0px 30px 22px -10px;

@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
+import { db } from "../firebase";
+import { collection, onSnapshot, doc, getDocs } from "firebase/firestore";
+import { useDispatch } from "react-redux";
+import { setMovies } from "../features/movie/movieSlice";
 
 function Home() {
+  async function queryCollection() {
+    const moviesRef = collection(db, "movies");
+    const movies = await getDocs(moviesRef);
+    movies.forEach((movie) => {
+      console.log(movie.data());
+    });
+  }
+
+  useEffect(() => {
+    queryCollection();
+  }, []);
+
   return (
     <Container>
       <ImgSlider />
