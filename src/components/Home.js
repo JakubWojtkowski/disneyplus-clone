@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
@@ -9,11 +9,14 @@ import { useDispatch } from "react-redux";
 import { setMovies } from "../features/movie/movieSlice";
 
 function Home() {
+  const dispatch = useDispatch();
+
   async function queryCollection() {
-    const moviesRef = collection(db, "movies");
-    const movies = await getDocs(moviesRef);
-    movies.forEach((movie) => {
-      console.log(movie.data());
+    onSnapshot(collection(db, "movies"), (snapshot) => {
+      let tempMovies = snapshot.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+      dispatch(setMovies(tempMovies));
     });
   }
 
