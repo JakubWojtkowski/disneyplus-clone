@@ -5,17 +5,19 @@ import { useSelector } from "react-redux";
 
 function Movies() {
   const movies = useSelector(selectMovies);
+  console.log(movies);
 
   return (
     <Container>
       <h4>Recommended for You</h4>
       <Content>
         {movies &&
-          movies.map((movie) => {
-           return( <Wrap>
-              <img src={movie.cardImg} alt="" />
-              {console.log(movie.cardImg)}
-            </Wrap>);
+          movies.map((movie, index) => {
+            return (
+              <Wrap key={index}>
+                <img src={movie.cardImg} alt="" />
+              </Wrap>
+            );
           })}
       </Content>
     </Container>
