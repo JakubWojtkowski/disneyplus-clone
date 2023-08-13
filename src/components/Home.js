@@ -4,7 +4,7 @@ import ImgSlider from "./ImgSlider";
 import Viewers from "./Viewers";
 import Movies from "./Movies";
 import { db } from "../firebase";
-import { collection, onSnapshot, doc, getDocs } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { useDispatch } from "react-redux";
 import { setMovies } from "../features/movie/movieSlice";
 

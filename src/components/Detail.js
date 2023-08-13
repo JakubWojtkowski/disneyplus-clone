@@ -1,39 +1,58 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import { useParams } from "react-router-dom";
+import { db } from "../firebase";
+import { collection, doc, getDoc } from "firebase/firestore";
 
 function Detail() {
+  const { id } = useParams();
+  const [movie, setMovie] = useState();
+
+  async function getMovieId() {
+    const docRef = doc(db, "movies", id);
+    const docSnap = await getDoc(docRef);
+
+    docSnap.data() ? setMovie(docSnap.data()) : console.log("nie git");
+
+    console.log("Movie is ", movie);
+  }
+
+  useEffect(() => {
+    getMovieId();
+  }, [id]);
+
   return (
     <Container>
-      <Background>
-        <img src="/images/bao.jpg" alt=""></img>
-      </Background>
+      {movie && (
+        <>
+          <Background>
+            <img src={movie.backgroundImg} alt=""></img>
+          </Background>
 
-      <ImgTitle>
-        <img src="/images/bao-logo.png" alt="" />
-      </ImgTitle>
+          <ImgTitle>
+            <img src="/images/bao-logo.png" alt="" />
+          </ImgTitle>
 
-      <Controls>
-        <PlayBtn>
-          <img src="/images/play-icon-black.png" alt="" />
-          <span>PLAY</span>
-        </PlayBtn>
-        <TrailerBtn>
-          <img src="/images/play-icon-white.png" alt="" />
-          <span>TRAILER</span>
-        </TrailerBtn>
-        <AddBtn>
-          <span>+</span>
-        </AddBtn>
-        <GroupWatchBtn>
-          <img src="/images/group-icon.png" alt="" />
-        </GroupWatchBtn>
-      </Controls>
-      <Subtitle>2018 · 7m · Family, Fantasy, Kids, Animation</Subtitle>
-      <Description>
-        A Chinese mom who's sad when her grown son leaves home gets another
-        chance at motherhood when one of her dumplings springs to life. But she
-        finds that nothing stays cute and small forever.
-      </Description>
+          <Controls>
+            <PlayBtn>
+              <img src="/images/play-icon-black.png" alt="" />
+              <span>PLAY</span>
+            </PlayBtn>
+            <TrailerBtn>
+              <img src="/images/play-icon-white.png" alt="" />
+              <span>TRAILER</span>
+            </TrailerBtn>
+            <AddBtn>
+              <span>+</span>
+            </AddBtn>
+            <GroupWatchBtn>
+              <img src="/images/group-icon.png" alt="" />
+            </GroupWatchBtn>
+          </Controls>
+          <Subtitle>{movie.subtitle}</Subtitle>
+          <Description>{movie.description}</Description>
+        </>
+      )}
     </Container>
   );
 }

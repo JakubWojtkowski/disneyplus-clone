@@ -9,20 +9,22 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Header />
-        <Switch>
-          <Route path="/detail">
-            <Detail />
-          </Route>
+        <React.StrictMode>
+          <Header />
+          <Switch>
+            <Route path="/detail/:id">
+              <Detail />
+            </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
 
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </React.StrictMode>
       </Router>
     </div>
   );
