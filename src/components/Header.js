@@ -6,11 +6,14 @@ import {
   selectUserName,
   selectUserPhoto,
   setUserLogin,
+  setSignOut,
 } from "../features/user/userSlice";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 function Header() {
   const dispatch = useDispatch();
+  const history = useHistory();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
@@ -25,6 +28,18 @@ function Header() {
             photo: user.photoURL,
           })
         );
+        history.push("/");
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      await signOut(auth).then(() => {
+        dispatch(setSignOut());
+        history.push("/login");
       });
     } catch (err) {
       console.log(err);
@@ -66,7 +81,7 @@ function Header() {
               <span>SERIES</span>
             </a>
           </NavMenu>
-          <UserImg src="/images/elon.jpg"></UserImg>
+          <UserImg onClick={signOut} src="/images/elon.jpg"></UserImg>
         </>
       )}
     </Nav>
