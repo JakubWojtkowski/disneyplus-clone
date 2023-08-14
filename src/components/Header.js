@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { auth, googleProvider } from "../firebase";
 import { signInWithPopup, signOut } from "firebase/auth";
 import styled from "styled-components";
@@ -37,7 +37,7 @@ function Header() {
 
   const signOut = async () => {
     try {
-      await signOut(auth).then(() => {
+      await auth.signOut().then(() => {
         dispatch(setSignOut());
         history.push("/login");
       });
@@ -45,6 +45,23 @@ function Header() {
       console.log(err);
     }
   };
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        dispatch(
+          setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL,
+          })
+        );
+        history.push("/");
+      } else {
+        history.push("/login");
+      }
+    });
+  }, []);
 
   return (
     <Nav>
