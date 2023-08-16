@@ -1,30 +1,38 @@
 import React from "react";
 import { styled } from "styled-components";
+import Baner from "./Baner";
 
 function Login() {
   return (
-    <Container>
-      <Content>
-        <ContentlogoOne src="/images/cta-logo-one.svg" alt="" />
-        <SingUpBtn>GET ALL THERE</SingUpBtn>
-        <Description>
-          Get Premier Access to Raya and the Last Dragon for an additional fee
-          with a Disney+ subscription. As of 03/26/23, the price of Disney+ and
-          The Disney Bundle will increase by $1.
-        </Description>
-        <ContentlogoTwo src="/images/cta-logo-two.png" alt="" />
-      </Content>
-    </Container>
+    <Main>
+      <Container>
+        <Content>
+          <ContentlogoOne src="/images/cta-logo-one.svg" alt="" />
+          <SingUpBtn>GET ALL THERE</SingUpBtn>
+          <Description>
+            Get Premier Access to Raya and the Last Dragon for an additional fee
+            with a Disney+ subscription. As of 03/26/23, the price of Disney+
+            and The Disney Bundle will increase by $1.
+          </Description>
+          <ContentlogoTwo src="/images/cta-logo-two.png" alt="cta logos" />
+        </Content>
+        <DownArrow src="/images/down-arrow.svg" alt="down arrow" />
+      </Container>
+      <Baner />
+    </Main>
   );
 }
 
 export default Login;
 
+const Main = styled.div``;
+
 const Container = styled.div`
   min-height: calc(100vh - 70px);
   position: relative;
   display: flex;
-  align-items: top;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 
   &:before {
@@ -84,4 +92,33 @@ const Description = styled.div`
 
 const ContentlogoTwo = styled.img`
   width: 90%;
+`;
+
+const DownArrow = styled.img`
+  height: 5vh;
+  margin-top: 25px;
+  opacity: 0.4;
+  cursor: pointer;
+  animation: bounce 1.75s infinite;
+  transition: all 250ms;
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-7px);
+    }
+    60% {
+      transform: translateY(-3.5px);
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 `;
