@@ -3,42 +3,40 @@ import { styled } from "styled-components";
 
 function Baner() {
   return (
-      <Container>
-        <Content>
-          <Heading>Watch the way you like</Heading>
-          <Descritpion>
-            The greatest stories - whenever and wherever you want.
-          </Descritpion>
-          <ImgTitle>
-            <img src="/images/login-background2.jpg" alt="" />
-          </ImgTitle>
-          <BanerIcons>
-            <BanerIcon>
-              <img src="/images/baner-cinema.png" alt="baner icon" />
-              <BanerIconTitle>Entertainment without borders</BanerIconTitle>
-              <BanerIconsDesc>
-                Thousands of hours of series, movies and productions.
-              </BanerIconsDesc>
-            </BanerIcon>
-            <BanerIcon>
-              <img src="/images/baner-desktop.png" alt="baner icon" />
-              <BanerIconTitle>
-                Available on your favorite devices
-              </BanerIconTitle>
-              <BanerIconsDesc>
-                Watch on four screens at once on supported devices.
-              </BanerIconsDesc>
-            </BanerIcon>
-            <BanerIcon>
-              <img src="/images/baner-parents.png" alt="baner icon" />
-              <BanerIconTitle>Easy-to-use parental controls</BanerIconTitle>
-              <BanerIconsDesc>
-                Stay safe with intuitive parental controls.
-              </BanerIconsDesc>
-            </BanerIcon>
-          </BanerIcons>
-        </Content>
-      </Container>
+    <Container id="baner">
+      <Content>
+        <Heading>Watch the way you like</Heading>
+        <Descritpion>
+          The greatest stories - whenever and wherever you want.
+        </Descritpion>
+        <ImgTitle>
+          <img src="/images/login-background2.jpg" alt="" />
+        </ImgTitle>
+        <BanerIcons>
+          <BanerIcon>
+            <img src="/images/baner-cinema.png" alt="baner icon" />
+            <BanerIconTitle>Entertainment without borders</BanerIconTitle>
+            <BanerIconsDesc>
+              Thousands of hours of series, movies and productions.
+            </BanerIconsDesc>
+          </BanerIcon>
+          <BanerIcon>
+            <img src="/images/baner-desktop.png" alt="baner icon" />
+            <BanerIconTitle>Available on your favorite devices</BanerIconTitle>
+            <BanerIconsDesc>
+              Watch on four screens at once on supported devices.
+            </BanerIconsDesc>
+          </BanerIcon>
+          <BanerIcon>
+            <img src="/images/baner-parents.png" alt="baner icon" />
+            <BanerIconTitle>Easy-to-use parental controls</BanerIconTitle>
+            <BanerIconsDesc>
+              Stay safe with intuitive parental controls.
+            </BanerIconsDesc>
+          </BanerIcon>
+        </BanerIcons>
+      </Content>
+    </Container>
   );
 }
 

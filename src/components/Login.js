@@ -1,24 +1,27 @@
 import React from "react";
 import { styled } from "styled-components";
 import Baner from "./Baner";
+import { Link } from "react-scroll";
 
 function Login() {
   return (
     <Main>
       <Container>
         <Content>
-          <ContentlogoOne src="/images/cta-logo-one.svg" alt="" />
+          <ContentlogoOne src="/images/cta-logo-one.svg" alt="cta-logo-one" />
           <SingUpBtn>GET ALL THERE</SingUpBtn>
           <Description>
             Get Premier Access to Raya and the Last Dragon for an additional fee
             with a Disney+ subscription. As of 03/26/23, the price of Disney+
             and The Disney Bundle will increase by $1.
           </Description>
-          <ContentlogoTwo src="/images/cta-logo-two.png" alt="cta logos" />
+          <ContentlogoTwo src="/images/cta-logo-two.png" alt="ctalogo-two" />
         </Content>
-        <DownArrow src="/images/down-arrow.svg" alt="down arrow" />
+        <Link to="baner" spy={true} smooth={true} offset={0} duration={500}>
+          <DownArrow src="/images/down-arrow.svg" alt="down arrow" />
+        </Link>
       </Container>
-      <Baner />
+      <Baner id="baner" />
     </Main>
   );
 }
@@ -95,12 +98,12 @@ const ContentlogoTwo = styled.img`
 `;
 
 const DownArrow = styled.img`
-  height: 5vh;
-  margin-top: 25px;
+  height: 6vh;
+  margin-bottom: 35px;
   opacity: 0.4;
   cursor: pointer;
   animation: bounce 1.75s infinite;
-  transition: all 250ms;
+  transition: all 250ms ease-in-out;
 
   @keyframes bounce {
     0%,
