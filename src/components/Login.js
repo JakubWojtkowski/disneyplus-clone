@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "styled-components";
 import Baner from "./Baner";
+import DisneyBaner from "./DisneyBaner";
 import { Link } from "react-scroll";
 
 function Login() {
@@ -17,10 +18,17 @@ function Login() {
           </Description>
           <ContentlogoTwo src="/images/cta-logo-two.png" alt="ctalogo-two" />
         </Content>
-        <Link to="baner" spy={true} smooth={true} offset={0} duration={500}>
+        <Link
+          to="disney-baner"
+          spy={true}
+          smooth={true}
+          offset={0}
+          duration={500}
+        >
           <DownArrow src="/images/down-arrow.svg" alt="down arrow" />
         </Link>
       </Container>
+      <DisneyBaner />
       <Baner id="baner" />
     </Main>
   );

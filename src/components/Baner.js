@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 
 function Baner() {
   return (
-    <Container id="baner">
+    <Container>
       <Content>
         <Heading>Watch the way you like</Heading>
         <Descritpion>
@@ -55,7 +55,7 @@ const Content = styled.div`
 
 const Heading = styled.div`
   color: rgb(249, 249, 249);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
   min-height: 20px;
   margin-top: 20px;
   text-align: center;
